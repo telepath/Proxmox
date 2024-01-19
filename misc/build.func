@@ -1,3 +1,5 @@
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 variables() {
   NSAPP=$(echo ${APP,,} | tr -d ' ') # This function sets the NSAPP variable by converting the value of the APP variable to lowercase and removing any spaces.
   var_install="${NSAPP}-install"     # sets the var_install variable by appending "-install" to the value of NSAPP.
@@ -503,9 +505,9 @@ build_container() {
   TEMP_DIR=$(mktemp -d)
   pushd $TEMP_DIR >/dev/null
   if [ "$var_os" == "alpine" ]; then
-    export FUNCTIONS_FILE_PATH="$($SCRIPT_PATH/../misc/alpine-install.func)"
+    export FUNCTIONS_FILE_PATH="$($SCRIPT_DIR/../misc/alpine-install.func)"
   else
-    export FUNCTIONS_FILE_PATH="$($SCRIPT_PATH/../misc/install.func)"
+    export FUNCTIONS_FILE_PATH="$($SCRIPT_DIR/../misc/install.func)"
   fi
   export CACHER="$APT_CACHER"
   export CACHER_IP="$APT_CACHER_IP"
@@ -535,7 +537,7 @@ build_container() {
     $PW
   "
   # This executes create_lxc.sh and creates the container and .conf file
-  bash -c "$($SCRIPT_PATH/../ct/create_lxc.sh)" || exit
+  bash -c "$($SCRIPT_DIR/../ct/create_lxc.sh)" || exit
 
   LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
   if [ "$CT_TYPE" == "0" ]; then
@@ -579,7 +581,7 @@ http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
 EOF'
     pct exec "$CTID" -- ash -c "apk add bash >/dev/null"
   fi
-  lxc-attach -n "$CTID" -- bash -c "$($SCRIPT_PATH/../install/$var_install.sh)" || exit
+  lxc-attach -n "$CTID" -- bash -c "$($SCRIPT_DIR/../install/$var_install.sh)" || exit
 
 }
 

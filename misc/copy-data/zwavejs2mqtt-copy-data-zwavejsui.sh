@@ -127,4 +127,4 @@ info "Successfully Transferred Data."
 
 # Use to copy all data from a Zwavejs2MQTT LXC to a Z-wave JS UI LXC
 # run from the Proxmox Shell
-# bash -c "$($SCRIPT_PATH/../misc/copy-data/zwavejs2mqtt-copy-data-zwavejsui.sh)"
+# bash -c "$($SCRIPT_DIR/../misc/copy-data/zwavejs2mqtt-copy-data-zwavejsui.sh)"

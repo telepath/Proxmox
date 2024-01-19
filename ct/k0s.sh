@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $SCRIPT_PATH/../misc/build.func
+source $SCRIPT_DIR/../misc/build.func
 # Copyright (c) 2021-2024 tteck
 # Author: tteck (tteckster)
 # License: MIT

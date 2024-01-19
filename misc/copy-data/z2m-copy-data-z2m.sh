@@ -125,4 +125,4 @@ info "Successfully Transferred Data."
 
 # Use to copy all data from one Zigbee2MQTT LXC to another
 # run from the Proxmox Shell
-# bash -c "$($SCRIPT_PATH/../misc/copy-data/z2m-copy-data-z2m.sh)"
+# bash -c "$($SCRIPT_DIR/../misc/copy-data/z2m-copy-data-z2m.sh)"

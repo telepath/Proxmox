@@ -125,4 +125,4 @@ info "Successfully Transferred Data."
 
 # Use to copy all data from one Plex Media Server LXC to another
 # run from the Proxmox Shell
-# bash -c "$($SCRIPT_PATH/../misc/copy-data/plex-copy-data-plex.sh)"
+# bash -c "$($SCRIPT_DIR/../misc/copy-data/plex-copy-data-plex.sh)"
